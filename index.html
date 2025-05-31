@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>ATIVIDADE</title> <link rel="stylesheet" href="art.css">
+</head>
+<body>
+  <h3>Digite o nome completo:</h3>
+  <input type="text" id="nomeCompleto" placeholder="Ex:Maria Clara de Alcantara Sales">
+  <button onclick="formatarNome()">Formatar</button>
+  <p><strong>Resultado</strong> <span id="resultado"></span></p>
+
+  <script>
+    function formatarNome() {
+      const juncoes = ["da", "de", "do", "dos", "das", "e"];
+      const nome = document.getElementById("nomeCompleto").value.trim();
+      let partes = nome.split(" ").filter(p => !juncoes.includes(p.toLowerCase()));
+      const ultimoNome = partes.pop();
+      const restante = partes.join(" ");
+      document.getElementById("resultado").textContent = `${ultimoNome}, ${restante}`;
+    }
+  </script>
+</body>
+</html>
